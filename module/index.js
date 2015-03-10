@@ -1,7 +1,5 @@
 'use strict';
 
-var _ = require('lodash');
-
 var DealiniSubGenerator = require('../base');
 var util = require('../util');
 
