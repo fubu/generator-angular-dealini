@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">This is the <%= names.module %> module</h1>
+
+    <div class="col-md-4">
+      <p>Column #1</p>
+    </div>
+    <div class="col-md-4">
+      <p>Column #2</p>
+      <button type="submit" ng-click="<%= names.controllerAs %>.foo()"
+              class="btn btn-block btn-lg btn-primary">Click me!</button>
+    </div>
+    <div class="col-md-4">
+      <p>Column #3</p>
+    </div>
+
+    <p>{{::<%= names.controllerAs %>.barProp}}</p>
+  </div>
+</div>

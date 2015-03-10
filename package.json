@@ -2,15 +2,16 @@
   "name": "generator-angular-dealini",
   "version": "0.1.0",
   "preferGlobal": true,
-  "description": "Yeoman generator for AngularJS with GulpJS",
+  "description": "Yeoman subgenerator for dealini.ch webapps",
   "keywords": "yeoman-generator, angular, gulp",
-  "license": "MIT",
   "author": "Fabian Brun",
   "contributors": [
     "Fabian Brun <fabian.brun@dealini.ch> (https://github.com/fubu)"
   ],
   "files": [
-    "module", "component"
+    "app",
+    "module",
+    "component"
   ],
   "main": "app/index.js",
   "repository": "fubu/generator-angular-dealini",
