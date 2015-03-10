@@ -1,0 +1,27 @@
+{
+  // Explanations for each rule can be found in the JSHint documentation:
+  //    http://www.jshint.com/docs/options/
+
+  // Enforcing options
+  "bitwise": true,
+  "eqeqeq": true,
+  "es3": false,
+  "forin": true,
+  "freeze": true,
+  "latedef": "nofunc",
+  "maxcomplexity": 10,
+  "noarg": true,
+  "nonbsp": true,
+  "nonew": true,
+  "undef": true,
+  "unused": true,
+  
+  // Relaxing options
+  "plusplus": true,
+  "strict": true,
+  
+  // Environments
+  "browser": false,
+  "devel": false,
+  "node": true
+}

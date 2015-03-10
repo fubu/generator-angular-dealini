@@ -1,0 +1,232 @@
+{
+  // Never use the `with` keyword
+  "disallowKeywords": ["with"],
+
+  // Use curly braces after all keywords
+  // GOOD:  case x: {
+  //          ...
+  //          break;
+  //        }
+  // BAD:   case x:
+  //          ...
+  "requireCurlyBraces": true,
+
+  // Use space after all keywords
+  // GOOD:  if ()
+  // BAD:   if()
+  "requireSpaceAfterKeywords": true,
+
+  // Use space before block statements
+  // GOOD:  for () {}
+  // BAD:   for (){}
+  "requireSpaceBeforeBlockStatements": true,
+
+  // No space before '()' in call expressions
+  // GOOD:  doSomething();
+  // BAD:   doSomething ();
+  "disallowSpacesInCallExpression": true, 
+
+  // Use parentheses around "immediately invoked function expressions"
+  // GOOD:  (function () {})()
+  // BAD:   function () {}()
+  "requireParenthesesAroundIIFE": true,
+
+  // Use spaces in ternary expressions
+  // GOOD:  x = a ? b : c
+  // BAD:   x = a?b:c
+  "requireSpacesInConditionalExpression": true,
+
+  // Use spaces in between for statements
+  // GOOD:  for (var i = 0; i < 10; i++) {}
+  // BAD:   for (var i = 0;i < 10;i++) {}
+  "requireSpacesInForStatement": true,
+
+  // Don't use space before round braces in named function expressions...
+  // GOOD:  function foo() {}
+  // BAD:   function foo () {}
+  "disallowSpacesInNamedFunctionExpression": {
+    "beforeOpeningRoundBrace": true
+  },
+  // ...but use space before curly braces in named function expressions
+  // GOOD:  function foo() {}
+  // BAD:   function foo(){}
+  "requireSpacesInNamedFunctionExpression": {
+    "beforeOpeningCurlyBrace": true
+  },
+  // In anonymous function expressions, use spaces both before () and {}
+  // GOOD:  function () {}
+  // BAD:   function(){}
+  "requireSpacesInAnonymousFunctionExpression": {
+    "beforeOpeningCurlyBrace": true,
+    "beforeOpeningRoundBrace": true
+  },
+
+  // Use seperate var statements, each on a seperate line
+  // GOOD:  var x = 1;
+  //        var y = 2;
+  // BAD:   var x = 1, y = 2;
+  // BAD:   var x = 1; var y = 2;
+  "disallowMultipleVarDecl": true,
+  "requireLineBreakAfterVariableAssignment": true,
+
+  // Blocks always start with a newline
+  // GOOD:  if (true) {
+  //          doSomething();
+  //        }
+  // BAD:   if (true) {doSomething();}
+  "requireBlocksOnNewline": true,
+
+  // No empty blocks (except for `catch` blocks)
+  "disallowEmptyBlocks": true,
+
+  // No spaces after opening bracket and before closing bracket
+  // GOOD:  var x = {a: [1, 2, 3], b: (1+2) * 3}
+  // BAD:   var x = { a: [ 1, 2, 3 ], b: ( 1 + 2 ) * 3 }
+  "disallowSpacesInsideObjectBrackets": true,
+  "disallowSpacesInsideArrayBrackets": true,
+  "disallowSpacesInsideParentheses": true,
+
+  // Only quote object keys which are named after ES3+ reserved keywords
+  // GOOD:  var x = {a: 1, 'default': 2}
+  // BAD:   var x = {'a': 1, 'default': 2}
+  "disallowQuotedKeysInObjects": "allButReserved",
+
+  // No space after object keys, but before object values
+  // GOOD:  var x = {a: 1}
+  // BAD:   var x = {a : 1}
+  // BAD:   var x = {a:1}
+  "disallowSpaceAfterObjectKeys": true,
+  "requireSpaceBeforeObjectValues": true,
+
+  // Commas at the end of the line in lists
+  // GOOD:  var x = {
+  //          a: 1,
+  //          b: 2
+  //        }
+  // BAD:   var x = {
+  //          a: 1
+  //          , b: 2
+  //        }
+  "requireCommaBeforeLineBreak": true,
+
+  // Operators must come before the line break, not after
+  // GOOD:  var x = 'some string' +
+  //          ' which is a bit long';
+  // BAD:   var x = 'some string'
+  //          + ' which is a bit long';
+  "requireOperatorBeforeLineBreak": true,
+
+  // No spaces between unary operators and their operand
+  // GOOD:  x = !y;
+  //        y = z++;
+  // BAD    x = ! y;
+  //        y = z ++;
+  "disallowSpaceAfterPrefixUnaryOperators": true,
+  "disallowSpaceBeforePostfixUnaryOperators": true,
+
+  // Spaces around binary operators
+  // GOOD:  x + y
+  // BAD:   x+y
+  "requireSpaceBeforeBinaryOperators": true,
+  "requireSpaceAfterBinaryOperators": true,
+
+  // Variable names are either camelCase or UPPERCASE_WITH_UNDERSCORE, except
+  // for object properties (e.g., accessing API data)
+  // GOOD:  var SOME_CONSTANT = 3;
+  //        var someVariable = apiResponse.deal_id;
+  // BAD:   var SomeConstant = 3;
+  //        var some_variable = api_repsonse.deal_od
+  "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties",
+
+  // No multi-line strings
+  // GOOD:  var s = 'multi' +
+  //          'line string';
+  // BAD:   var s = 'multi \
+  //        line string';
+  "disallowMultipleLineStrings": true,
+
+  // Never use multiple empty lines in a row
+  "disallowMultipleLineBreaks": true,
+
+  // Don't mix tabs and spaces
+  "disallowMixedSpacesAndTabs": true,
+
+  // No whitespace at the end of a line, especially not in empty lines
+  "disallowTrailingWhitespace": true,
+
+  // Don't put a comma after the last element in a list
+  // GOOD:  var x = [1, 2, 3]
+  // BAD:   var x = [1, 2, 3, ]
+  "disallowTrailingComma": true,
+
+  // Put `else` and `catch` on the closing line of the previous block
+  // GOOD:  if (...) {
+  //          doSomething();
+  //        } else {
+  //          doSomethingElse();
+  //        }
+  // BAD:   if (...) {
+  //          doSomething();
+  //        }
+  //        else {
+  //          doSomethingElse();
+  //        }
+  "disallowKeywordsOnNewLine": ["else", "catch"],
+
+  // Always have a newline at the end of a file
+  "requireLineFeedAtFileEnd": true,
+
+  // Maximum line length of 120 chars, except for URLs in comments
+  "maximumLineLength": {
+    "value": 120,
+    "allowUrlComments": true
+  },
+
+  // Constructors must be capitalized
+  "requireCapitalizedConstructors": true,
+
+  // Access members with dot notation when possible
+  // GOOD:  x = b.foo
+  // BAD:   x = b['foo']
+  "requireDotNotation": true,
+
+  // Line comments must start with a space
+  // GOOD:  // good :)
+  // BAD:   //bad :(
+  "requireSpaceAfterLineComment": true,
+
+  // Don't put opening brackets of a block on a new line
+  // GOOD:  if (condition) {
+  //          doSomething();
+  //        }
+  // BAD:   if (condition)
+  //        {
+  //          doSomething();
+  //        }
+  "disallowNewlineBeforeBlockStatements": true,
+
+  // Use unix line endings
+  "validateLineBreaks": "LF",
+
+  // Use single quotes
+  // GOOD:  var s = 'foo'
+  // BAD:   var s = "foo"
+  "validateQuoteMarks": "'",
+
+  // Indent every level by 2 spaces
+  "validateIndentation": 2,
+
+  // Seperate function parameters by a comma followed by a space
+  // GOOD:  foo(a, b, c)
+  // BAD:   foo(a,b,c)
+  "validateParameterSeparator": ", ",
+
+  // Safe variable names to assign `this` to
+  // GOOD:  var that = this;
+  //        var vm = this;
+  // BAD:   var whatever = this;
+  "safeContextKeyword": ["that", "vm"],
+
+  // Exclude third-party & auto-generated code from being checked
+  "excludeFiles": ["node_modules/**"]
+}
