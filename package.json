@@ -9,9 +9,11 @@
     "Fabian Brun <fabian.brun@dealini.ch> (https://github.com/fubu)"
   ],
   "files": [
-    "app",
     "module",
-    "component"
+    "component",
+    "templates",
+    "base.js",
+    "util.js"
   ],
   "main": "app/index.js",
   "repository": "fubu/generator-angular-dealini",
