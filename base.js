@@ -10,7 +10,7 @@ var util = require('./util');
 var DealiniSubGenerator = generators.NamedBase.extend({
 
   DEST_FOLDER: '',
-
+  INJECTOR_TAG: null,
   GENERATOR_OPTS: [],
 
   constructor: function () {
@@ -67,7 +67,9 @@ var DealiniSubGenerator = generators.NamedBase.extend({
         tplValues);
     }, this);
 
-    this._appendAppDependency(componentNames.module);
+    if (this.INJECTOR_TAG) {
+      this._appendAppDependency(componentNames.module);
+    }
   },
 
   _appendAppDependency: function (dep) {
@@ -83,10 +85,10 @@ var DealiniSubGenerator = generators.NamedBase.extend({
     }
 
     // insert dependency and write back to app.js
-    var dependencyToInsert = '\n  \'' + dep + '\'';
-    var appModuleParts = appModuleContent.split(',');
-    appModuleParts.splice(-1, 0, dependencyToInsert);
-    this.writeFileFromString(appModuleParts.join(','), appModulePath);
+    var injected = util.injectDependency(
+      appModuleContent, dep, this.INJECTOR_TAG);
+
+    this.writeFileFromString(injected, appModulePath);
     console.log(
       chalk.green('   app.js'), 'dependency on', dep, 'has been added'
     );

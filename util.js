@@ -56,3 +56,43 @@ exports.compileComponentNames = function (moduleName, appName, route) {
     service: capitalizedCamelCaseModuleName + 'Service'
   };
 };
+
+var QUOTE = '\'';
+var COMMA = ',';
+var RE_START_TOKEN = '([\\[\'",])';
+var RE_END_TOKEN = '([\'"\\]])';
+var RE_WHITESPACE = '(\\s*)';
+var RE_INJECTOR_COMMENT = ['(/\\*\\s*', '\\s*\\*/)'];
+
+exports.injectDependency = function (target, dep, injectorTag) {
+
+  var re = new RegExp(
+    RE_START_TOKEN +
+    RE_WHITESPACE +
+    RE_INJECTOR_COMMENT.join(injectorTag) +
+    RE_WHITESPACE +
+    RE_END_TOKEN
+  );
+  var match = re.exec(target);
+  if (!match) {
+    return false;
+  }
+
+  var startToken = match[1];
+  var whitespaceBefore = match[2];
+  var injectorComment = match[3];
+  var whitespaceAfter = match[4];
+  var endToken = match[5];
+
+  var injectParts = [startToken];
+  if (startToken === QUOTE) {
+    injectParts.push(COMMA);
+  }
+  injectParts.push(whitespaceBefore, QUOTE, dep, QUOTE);
+  if (endToken === QUOTE) {
+    injectParts.push(COMMA);
+  }
+  injectParts.push(whitespaceBefore, injectorComment, whitespaceAfter, endToken);
+
+  return target.replace(re, injectParts.join(''));
+};

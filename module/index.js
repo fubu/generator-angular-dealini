@@ -6,7 +6,7 @@ var util = require('../util');
 var DealiniModuleGenerator = DealiniSubGenerator.extend({
 
   DEST_FOLDER: 'src/',
-
+  INJECTOR_TAG: 'inject:module',
   GENERATOR_OPTS: ['route', 'controller', 'view', 'service', 'directive'],
 
   createFiles: function createModuleFiles() {
