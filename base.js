@@ -61,7 +61,8 @@ var DealiniSubGenerator = generators.NamedBase.extend({
       this.fs.copyTpl(
         this.templatePath(tplPath),
         this._compileDestinationPath(tplPath),
-        tplValues);
+        tplValues
+      );
     }, this);
 
     if (this.INJECTOR_TAG) {
@@ -83,7 +84,15 @@ var DealiniSubGenerator = generators.NamedBase.extend({
 
     // insert dependency and write back to app.js
     var injected = util.injectDependency(
-      appModuleContent, dep, this.INJECTOR_TAG);
+      appModuleContent, dep, this.INJECTOR_TAG
+    );
+    if (injected === appModuleContent) {
+      console.log(
+        chalk.red('   app.js'),
+        'could not find injector tag: /*', this.INJECTOR_TAG, '*/'
+      );
+      return;
+    }
 
     this.writeFileFromString(injected, appModulePath);
     console.log(

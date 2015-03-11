@@ -76,7 +76,7 @@ exports.injectDependency = function (target, dep, injectorTag) {
   );
   var match = re.exec(target);
   if (!match) {
-    return false;
+    return target;
   }
 
   var startToken = match[1];
