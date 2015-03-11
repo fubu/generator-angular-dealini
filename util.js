@@ -46,9 +46,10 @@ exports.collectTemplates = function (options) {
 exports.compileComponentNames = function (moduleName, appName, route) {
   var camelCasedModuleName = _.camelCase(moduleName);
   var capitalizedCamelCaseModuleName = _.capitalize(camelCasedModuleName);
+  var fullModuleName = appName ? [appName, moduleName].join('.') : moduleName;
 
   return {
-    module: [appName, moduleName].join('.'),
+    module: fullModuleName,
     route: route,
     controller: capitalizedCamelCaseModuleName + 'Controller',
     controllerAs: camelCasedModuleName + 'Ctrl',

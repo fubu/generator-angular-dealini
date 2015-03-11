@@ -51,10 +51,7 @@ var DealiniSubGenerator = generators.NamedBase.extend({
     ));
   },
 
-  _copyTemplates: function (srcFiles) {
-    var componentNames = util.compileComponentNames(
-        this.name, this.determineAppname(), this.options.route);
-
+  _copyTemplates: function (srcFiles, componentNames) {
     var tplValues = {
       options: _.pick(this.options, this.GENERATOR_OPTS),
       names: componentNames

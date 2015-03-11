@@ -18,7 +18,10 @@ var DealiniModuleGenerator = DealiniSubGenerator.extend({
     }
 
     var srcFiles = util.collectTemplates(this.options);
-    this._copyTemplates(srcFiles);
+    var componentNames = util.compileComponentNames(
+        this.name, this.determineAppname(), this.options.route);
+
+    this._copyTemplates(srcFiles, componentNames);
   }
 
 });
